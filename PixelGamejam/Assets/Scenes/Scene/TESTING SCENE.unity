@@ -358,7 +358,6 @@ GameObject:
   - component: {fileID: 766189591}
   - component: {fileID: 766189590}
   - component: {fileID: 766189592}
-  - component: {fileID: 766189589}
   m_Layer: 0
   m_Name: PLAYER
   m_TagString: Untagged
@@ -375,7 +374,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 766189586}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 88c46fbcbe861554bae2f27c3f190d59, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -427,20 +426,6 @@ Transform:
   - {fileID: 1932735058}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &766189589
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 766189586}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b18324cb63ddf4642b4ebcdc56a9d3f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  grounded: 0
-  notGroundedTimer: 0
 --- !u!114 &766189590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -454,9 +439,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 12
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 0
+  movementStates:
+  - {fileID: 11400000, guid: 1bf6799246bf1874c9610e077436341c, type: 2}
+  - {fileID: 11400000, guid: 62994552b481f3d4aa6701e151760900, type: 2}
 --- !u!50 &766189591
 Rigidbody2D:
   serializedVersion: 4
@@ -498,7 +483,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InJump: 0
   JumpForce: 3
-  coyoteTimeAllowance: 0.1
+  coyoteTimeAllowance: 0.15
   groundCheck: {fileID: 729763180}
 --- !u!1 &1254289406
 GameObject:
