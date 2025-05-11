@@ -24,8 +24,6 @@ public class Jumping : MonoBehaviour
     void Update(){
         CheckForJumping();
         ResetJumpCooldown();
-                
-
     }
 
     void CheckForJumping(){
@@ -38,7 +36,7 @@ public class Jumping : MonoBehaviour
                 return;
             }
 
-            if(groundCheck.notGroundedTimer <= coyoteTimeAllowance){ // check for coyote
+            if(groundCheck.notGroundedTimer < coyoteTimeAllowance){ // check for coyote
                 Debug.Log("Coyote jump");
                 Jump();
                 return;
@@ -53,7 +51,7 @@ public class Jumping : MonoBehaviour
         if(InJump){
             resetJumpTimer += Time.deltaTime;
 
-            if(resetJumpTimer >= coyoteTimeAllowance){
+            if(resetJumpTimer > coyoteTimeAllowance){ // Makes sure the script knows it isnt the jump state
                 resetJumpTimer = 0;
                 InJump = false;
             }
@@ -61,7 +59,13 @@ public class Jumping : MonoBehaviour
         
     }
     void Jump(){
+        ScriptableMovementState state = pMovement.movementStates[0];
+        state.rb = GetComponent<Rigidbody2D>();
+        state.JumpForce = JumpForce;
+
+        state.Jump();
+
         InJump = true;
-        rb.velocity = new Vector2(rb.velocity.x, JumpForce);
+        
     }
 }
