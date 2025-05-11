@@ -265,6 +265,7 @@ GameObject:
   - component: {fileID: 766189587}
   - component: {fileID: 766189591}
   - component: {fileID: 766189590}
+  - component: {fileID: 766189592}
   - component: {fileID: 766189589}
   m_Layer: 0
   m_Name: PLAYER
@@ -360,7 +361,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 12
-  jump: 2
   groundLayer:
     serializedVersion: 2
     m_Bits: 0
@@ -391,6 +391,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &766189592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 766189586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26e33181e185e8441bf35dc0cae1c956, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InJump: 0
+  JumpForce: 10
 --- !u!1 &1254289406
 GameObject:
   m_ObjectHideFlags: 0
