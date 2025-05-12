@@ -733,6 +733,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PLAYER
       objectReference: {fileID: 0}
+    - target: {fileID: 4583664039207213793, guid: f6871787299342f43a1b473d075a4d8d, type: 3}
+      propertyPath: BonesLeft
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 7476916984098124925, guid: f6871787299342f43a1b473d075a4d8d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
