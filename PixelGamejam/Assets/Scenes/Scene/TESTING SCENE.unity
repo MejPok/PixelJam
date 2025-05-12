@@ -359,6 +359,7 @@ GameObject:
   - component: {fileID: 766189591}
   - component: {fileID: 766189590}
   - component: {fileID: 766189592}
+  - component: {fileID: 766189593}
   m_Layer: 0
   m_Name: PLAYER
   m_TagString: Untagged
@@ -441,9 +442,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 12
   movementStates:
+  - {fileID: 11400000, guid: ae29d03776b21354684a06c814b30f45, type: 2}
   - {fileID: 11400000, guid: eb8ef1632a0613249acb1183ea503371, type: 2}
-  - {fileID: 11400000, guid: 1bf6799246bf1874c9610e077436341c, type: 2}
   - {fileID: 11400000, guid: 62994552b481f3d4aa6701e151760900, type: 2}
+  - {fileID: 11400000, guid: 1bf6799246bf1874c9610e077436341c, type: 2}
+  - {fileID: 11400000, guid: e0a7f72dc08241f41b955265ea127034, type: 2}
 --- !u!50 &766189591
 Rigidbody2D:
   serializedVersion: 4
@@ -484,10 +487,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InJump: 0
-  JumpForce: 3
+  JumpForce: 5
   coyoteTimeAllowance: 0.15
   groundCheck: {fileID: 729763180}
-  BufferAllow: 0
+  BufferAllow: 0.1
+--- !u!114 &766189593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 766189586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93903c1e866561b47ac3f84d509210c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  multiplier: 1
+  timer: 0
+  falling: 0
 --- !u!1 &1185083938
 GameObject:
   m_ObjectHideFlags: 0
