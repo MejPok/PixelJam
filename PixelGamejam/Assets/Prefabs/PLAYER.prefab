@@ -96,9 +96,11 @@ GameObject:
   - component: {fileID: 7476916984098124925}
   - component: {fileID: 52213389372118947}
   - component: {fileID: 8355873112199718732}
+  - component: {fileID: 8566258875597730785}
   - component: {fileID: 5434357706385807115}
   - component: {fileID: 6633554001669676669}
   - component: {fileID: 8479278009436685277}
+  - component: {fileID: 4583664039207213793}
   m_Layer: 0
   m_Name: PLAYER
   m_TagString: Untagged
@@ -194,6 +196,26 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &8566258875597730785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3515227325637328109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 215bb44128f362340958f538570e7621, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BonesLeft: 20
+  BonesMax: 20
+  allMovementStates:
+  - {fileID: 11400000, guid: 62994552b481f3d4aa6701e151760900, type: 2}
+  - {fileID: 11400000, guid: eb8ef1632a0613249acb1183ea503371, type: 2}
+  - {fileID: 11400000, guid: e0a7f72dc08241f41b955265ea127034, type: 2}
+  - {fileID: 11400000, guid: ae29d03776b21354684a06c814b30f45, type: 2}
+  - {fileID: 11400000, guid: 1bf6799246bf1874c9610e077436341c, type: 2}
 --- !u!114 &5434357706385807115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,7 +234,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: eb8ef1632a0613249acb1183ea503371, type: 2}
   - {fileID: 11400000, guid: 62994552b481f3d4aa6701e151760900, type: 2}
   - {fileID: 11400000, guid: 1bf6799246bf1874c9610e077436341c, type: 2}
-  - {fileID: 11400000, guid: e0a7f72dc08241f41b955265ea127034, type: 2}
 --- !u!114 &6633554001669676669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,6 +266,20 @@ MonoBehaviour:
   multiplier: 1
   timer: 0
   falling: 0
+--- !u!114 &4583664039207213793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3515227325637328109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2be1bcb4ab32fc42b940e6e06d2d91d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BonesLeft: 0
+  BonesMax: 20
 --- !u!1 &8823857069497089715
 GameObject:
   m_ObjectHideFlags: 0
