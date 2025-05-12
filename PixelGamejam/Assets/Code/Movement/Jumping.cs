@@ -25,7 +25,12 @@ public class Jumping : MonoBehaviour
     void Update(){
         CheckForJumping();
         ResetJumpCooldown();
+
+        ResetBufferSpace();
+
     }
+
+    
 
     public bool CheckForJumping(){
 
@@ -43,9 +48,38 @@ public class Jumping : MonoBehaviour
                 return true;
             }
 
-
         }
+
+        BufferTime();
+
         return false;
+    }
+
+    float bufferTimer;
+    bool spacePressed;
+    public float BufferAllow;
+    void BufferTime(){
+        if(Input.GetKey(KeyCode.Space) && groundCheck.Grounded == false){
+            spacePressed = true;
+            bufferTimer = 0;
+        }
+    }
+
+    void ResetBufferSpace(){
+        if(spacePressed){
+            bufferTimer += Time.deltaTime;
+            if(bufferTimer > BufferAllow){
+                bufferTimer = 0;
+                spacePressed = false;
+            }
+        }
+    }
+
+    public void UseBufferedJump(){
+        if(spacePressed){
+            CheckForJumping();
+        }
+        
     }
 
     public bool CheckForJumpingNOINPUT(){
