@@ -150,8 +150,8 @@ Transform:
   m_GameObject: {fileID: 232100925}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.99, y: -6.37, z: -0.012243456}
-  m_LocalScale: {x: 21.275505, y: 2.0231624, z: 1}
+  m_LocalPosition: {x: 22.2658, y: -6.0515, z: -0.012243456}
+  m_LocalScale: {x: 250, y: 2.660054, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1254289407}
@@ -440,6 +440,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 12
   movementStates:
+  - {fileID: 11400000, guid: eb8ef1632a0613249acb1183ea503371, type: 2}
   - {fileID: 11400000, guid: 1bf6799246bf1874c9610e077436341c, type: 2}
   - {fileID: 11400000, guid: 62994552b481f3d4aa6701e151760900, type: 2}
 --- !u!50 &766189591
@@ -700,7 +701,6 @@ GameObject:
   - component: {fileID: 1904276720}
   - component: {fileID: 1904276719}
   - component: {fileID: 1904276723}
-  - component: {fileID: 1904276722}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera

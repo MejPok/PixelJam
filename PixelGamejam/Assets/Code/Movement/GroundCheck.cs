@@ -6,6 +6,7 @@ public class GroundCheck : MonoBehaviour
 {
     [SerializeField] bool grounded;
     public float notGroundedTimer;
+    public Jumping jumper;
     public bool Grounded { 
         get { 
             return grounded; 
@@ -14,8 +15,11 @@ public class GroundCheck : MonoBehaviour
         set{
             if(value != grounded) { //Check for change
                 grounded = value;
+                
                 if(value == false){ // that means player has just left a platform, check for coyote time
                     notGroundedTimer = 0;
+                } else {
+                    jumper.UseBufferedJump();
                 }
             }
             

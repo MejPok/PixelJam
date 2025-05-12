@@ -9,15 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea90d256bec5cde44846869fc105921d, type: 3}
-  m_Name: NoBody
+  m_Script: {fileID: 11500000, guid: 0ce260fdaeb7c684180499556f865ef7, type: 3}
+  m_Name: OneLeg
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
   JumpForce: 3
-  JumpMultiplier: 0
-  CanJump: 0
+  JumpMultiplier: 1
+  CanJump: 1
   CanMove: 1
-  CanThrow: 0
+  CanThrow: 1
   isGrounded: 1
-  maxRollSpeed: 28.75
+  maxRollSpeed: 10
   jumper: {fileID: 0}

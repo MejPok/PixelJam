@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Jumping : MonoBehaviour
@@ -24,30 +25,90 @@ public class Jumping : MonoBehaviour
     void Update(){
         CheckForJumping();
         ResetJumpCooldown();
+
+        ResetBufferSpace();
+
     }
 
-    void CheckForJumping(){
+    
+
+    public bool CheckForJumping(){
 
         if (Input.GetKey(KeyCode.Space) && !InJump){
             
             if(groundCheck.Grounded == true){
                 Debug.Log("Grounded jump");
                 Jump();
-                return;
+                return true;
             }
 
             if(groundCheck.notGroundedTimer < coyoteTimeAllowance){ // check for coyote
                 Debug.Log("Coyote jump");
                 Jump();
-                return;
+                return true;
+            }
+
+        }
+
+        BufferTime();
+
+        return false;
+    }
+
+    float bufferTimer;
+    bool spacePressed;
+    public float BufferAllow;
+    void BufferTime(){
+        if(Input.GetKey(KeyCode.Space) && groundCheck.Grounded == false){
+            spacePressed = true;
+            bufferTimer = 0;
+        }
+    }
+
+    void ResetBufferSpace(){
+        if(spacePressed){
+            bufferTimer += Time.deltaTime;
+            if(bufferTimer > BufferAllow){
+                bufferTimer = 0;
+                spacePressed = false;
+            }
+        }
+    }
+
+    public void UseBufferedJump(){
+        if(spacePressed){
+            CheckForJumping();
+        }
+        
+    }
+
+    public bool CheckForJumpingNOINPUT(){
+
+        if (!InJump){
+            
+            if(groundCheck.Grounded == true){
+                Debug.Log("Grounded jump");
+                JumpNOINPUT();
+                return true;
+            }
+
+            if(groundCheck.notGroundedTimer < coyoteTimeAllowance){ // check for coyote
+                Debug.Log("Coyote jump");
+                JumpNOINPUT();
+                return true;
             }
 
 
         }
+        return false;
     }
 
     float resetJumpTimer;
     void ResetJumpCooldown(){
+        if(groundCheck.Grounded){
+            InJump = false;
+        }
+
         if(InJump){
             resetJumpTimer += Time.deltaTime;
 
@@ -68,4 +129,15 @@ public class Jumping : MonoBehaviour
         InJump = true;
         
     }
+    void JumpNOINPUT(){
+        ScriptableMovementState state = pMovement.movementStates[0];
+        state.rb = GetComponent<Rigidbody2D>();
+        state.JumpForce = JumpForce;
+
+        state.Jump();
+
+        InJump = true;
+        
+    }
+
 }
