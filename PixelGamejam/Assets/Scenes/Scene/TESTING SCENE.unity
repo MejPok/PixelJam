@@ -285,6 +285,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grounded: 0
   notGroundedTimer: 0
+  jumper: {fileID: 766189592}
 --- !u!61 &729763181
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -486,6 +487,7 @@ MonoBehaviour:
   JumpForce: 3
   coyoteTimeAllowance: 0.15
   groundCheck: {fileID: 729763180}
+  BufferAllow: 0
 --- !u!1 &1185083938
 GameObject:
   m_ObjectHideFlags: 0
@@ -701,6 +703,7 @@ GameObject:
   - component: {fileID: 1904276720}
   - component: {fileID: 1904276719}
   - component: {fileID: 1904276723}
+  - component: {fileID: 1904276722}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
