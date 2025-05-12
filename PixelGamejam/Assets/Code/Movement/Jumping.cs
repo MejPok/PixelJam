@@ -125,7 +125,7 @@ public class Jumping : MonoBehaviour
         
     }
     void Jump(){
-        ScriptableMovementState state = pMovement.movementStates[0];
+        ScriptableMovementState state = pMovement.movementState;
         state.rb = GetComponent<Rigidbody2D>();
         state.JumpForce = JumpForce;
 
@@ -136,7 +136,7 @@ public class Jumping : MonoBehaviour
         
     }
     void JumpNOINPUT(){
-        ScriptableMovementState state = pMovement.movementStates[0];
+        ScriptableMovementState state = pMovement.movementState;
         state.rb = GetComponent<Rigidbody2D>();
         state.JumpForce = JumpForce;
 
