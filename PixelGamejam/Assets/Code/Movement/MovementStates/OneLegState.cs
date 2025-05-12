@@ -16,7 +16,7 @@ public class OneLegState : ScriptableMovementState
         float horizontalInput = Input.GetAxis("Horizontal");
 
         if(horizontalInput != 0){
-            Vector2 force = new Vector2(horizontalInput * mySpeed, JumpForce * 7);
+            Vector2 force = new Vector2(horizontalInput * mySpeed, JumpForce * 5);
             if(Mathf.Abs(rb.velocity.x) < maxRollSpeed){
                 rb.AddForce(force);
             }

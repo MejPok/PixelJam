@@ -28,28 +28,31 @@ public class Jumping : MonoBehaviour
 
         ResetBufferSpace();
 
+        
     }
 
     
 
     public bool CheckForJumping(){
+        
+        if(!InJump){
+            if (Input.GetKey(KeyCode.Space)){
+                if(groundCheck.Grounded == true){
+                    Debug.Log("Grounded jump");
+                    Jump();
+                    return true;
+                }
 
-        if (Input.GetKey(KeyCode.Space) && !InJump){
-            
-            if(groundCheck.Grounded == true){
-                Debug.Log("Grounded jump");
-                Jump();
-                return true;
+                if(groundCheck.notGroundedTimer < coyoteTimeAllowance){ // check for coyote
+                    Debug.Log("Coyote jump");
+                    Jump();
+                    return true;
+                }
+
             }
-
-            if(groundCheck.notGroundedTimer < coyoteTimeAllowance){ // check for coyote
-                Debug.Log("Coyote jump");
-                Jump();
-                return true;
-            }
-
         }
-
+        
+        
         BufferTime();
 
         return false;
@@ -59,7 +62,7 @@ public class Jumping : MonoBehaviour
     bool spacePressed;
     public float BufferAllow;
     void BufferTime(){
-        if(Input.GetKey(KeyCode.Space) && groundCheck.Grounded == false){
+        if(Input.GetKeyDown(KeyCode.Space) && groundCheck.Grounded == false){
             spacePressed = true;
             bufferTimer = 0;
         }
@@ -77,7 +80,9 @@ public class Jumping : MonoBehaviour
 
     public void UseBufferedJump(){
         if(spacePressed){
-            CheckForJumping();
+            Debug.Log("ss");
+            Jump();
+            spacePressed = false;
         }
         
     }
@@ -127,6 +132,7 @@ public class Jumping : MonoBehaviour
         state.Jump();
 
         InJump = true;
+        spacePressed = false;
         
     }
     void JumpNOINPUT(){
