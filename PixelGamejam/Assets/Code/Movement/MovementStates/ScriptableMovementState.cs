@@ -11,6 +11,10 @@ public class ScriptableMovementState : ScriptableObject
     public bool CanJump;
     public bool CanMove;
     public bool CanThrow;
+
+    public bool isGrounded;
+
+    public Jumping jumper;
     public virtual void Jump(){
 
     }
@@ -21,6 +25,7 @@ public class ScriptableMovementState : ScriptableObject
     public virtual void Move(){
 
     }
+
     
 
 }

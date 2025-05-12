@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Jumping : MonoBehaviour
@@ -26,28 +27,54 @@ public class Jumping : MonoBehaviour
         ResetJumpCooldown();
     }
 
-    void CheckForJumping(){
+    public bool CheckForJumping(){
 
         if (Input.GetKey(KeyCode.Space) && !InJump){
             
             if(groundCheck.Grounded == true){
                 Debug.Log("Grounded jump");
                 Jump();
-                return;
+                return true;
             }
 
             if(groundCheck.notGroundedTimer < coyoteTimeAllowance){ // check for coyote
                 Debug.Log("Coyote jump");
                 Jump();
-                return;
+                return true;
             }
 
 
         }
+        return false;
+    }
+
+    public bool CheckForJumpingNOINPUT(){
+
+        if (!InJump){
+            
+            if(groundCheck.Grounded == true){
+                Debug.Log("Grounded jump");
+                Jump();
+                return true;
+            }
+
+            if(groundCheck.notGroundedTimer < coyoteTimeAllowance){ // check for coyote
+                Debug.Log("Coyote jump");
+                Jump();
+                return true;
+            }
+
+
+        }
+        return false;
     }
 
     float resetJumpTimer;
     void ResetJumpCooldown(){
+        if(groundCheck.Grounded){
+            InJump = false;
+        }
+
         if(InJump){
             resetJumpTimer += Time.deltaTime;
 

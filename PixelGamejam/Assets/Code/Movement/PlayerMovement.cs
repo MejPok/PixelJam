@@ -27,7 +27,12 @@ public class PlayerMovement : MonoBehaviour
 
     void Move(){
         ScriptableMovementState state = movementStates[0];
+        
         state.rb = rb;
+        state.jumper = GetComponent<Jumping>();
+        state.JumpForce = GetComponent<Jumping>().JumpForce;
+        state.isGrounded = GetComponent<Jumping>().groundCheck.Grounded;
+
         state.Move(speed);
     }
 
