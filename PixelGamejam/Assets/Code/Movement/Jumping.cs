@@ -54,13 +54,13 @@ public class Jumping : MonoBehaviour
             
             if(groundCheck.Grounded == true){
                 Debug.Log("Grounded jump");
-                Jump();
+                JumpNOINPUT();
                 return true;
             }
 
             if(groundCheck.notGroundedTimer < coyoteTimeAllowance){ // check for coyote
                 Debug.Log("Coyote jump");
-                Jump();
+                JumpNOINPUT();
                 return true;
             }
 
@@ -95,4 +95,15 @@ public class Jumping : MonoBehaviour
         InJump = true;
         
     }
+    void JumpNOINPUT(){
+        ScriptableMovementState state = pMovement.movementStates[0];
+        state.rb = GetComponent<Rigidbody2D>();
+        state.JumpForce = JumpForce;
+
+        state.Jump();
+
+        InJump = true;
+        
+    }
+
 }

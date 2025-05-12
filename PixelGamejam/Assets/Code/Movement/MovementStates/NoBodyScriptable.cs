@@ -6,7 +6,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName ="NoBody")]
 public class NoBodyScriptable : ScriptableMovementState
 {
-    public float maxRollSpeed;
     public override void Jump(){
         return;
     }

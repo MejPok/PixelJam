@@ -18,3 +18,6 @@ MonoBehaviour:
   CanJump: 0
   CanMove: 1
   CanThrow: 0
+  isGrounded: 1
+  maxRollSpeed: 28.75
+  jumper: {fileID: 0}

@@ -16,13 +16,14 @@ public class OneLegState : ScriptableMovementState
         float horizontalInput = Input.GetAxis("Horizontal");
 
         if(horizontalInput != 0){
-            Vector2 force = new Vector2(horizontalInput * mySpeed, JumpForce);
-            rb.AddForce(force);
-            
-            Debug.Log("" + force.magnitude);
+            Vector2 force = new Vector2(horizontalInput * mySpeed, JumpForce * 7);
+            if(Mathf.Abs(rb.velocity.x) < maxRollSpeed){
+                rb.AddForce(force);
+            }
+
         }
         else if (Input.GetKeyDown(KeyCode.Space)){
-            rb.velocity = new Vector2(rb.velocity.x, JumpForce * JumpMultiplier);
+            rb.velocity = new Vector2(rb.velocity.x, JumpForce);
         }
         
     }

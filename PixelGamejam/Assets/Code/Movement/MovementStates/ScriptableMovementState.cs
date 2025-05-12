@@ -13,6 +13,7 @@ public class ScriptableMovementState : ScriptableObject
     public bool CanThrow;
 
     public bool isGrounded;
+    public float maxRollSpeed;
 
     public Jumping jumper;
     public virtual void Jump(){
