@@ -6992,11 +6992,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &484738852 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3515227325637328109, guid: f6871787299342f43a1b473d075a4d8d, type: 3}
-  m_PrefabInstance: {fileID: 7776494688262291652}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &502081841
 GameObject:
   m_ObjectHideFlags: 0
@@ -11162,20 +11157,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7476916984098124925, guid: f6871787299342f43a1b473d075a4d8d, type: 3}
   m_PrefabInstance: {fileID: 7776494688262291652}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &766189596
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 484738852}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6dd5724ecd895a0419480e97471f9e1c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bc: {fileID: 0}
-  bonePrefab: {fileID: 2994431462379099033, guid: e6fbc5074d8166b4d93e51801c627de9, type: 3}
 --- !u!1 &773332932
 GameObject:
   m_ObjectHideFlags: 0
@@ -27381,33 +27362,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 872306641364954636, guid: f6871787299342f43a1b473d075a4d8d, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2714611235813413886, guid: f6871787299342f43a1b473d075a4d8d, type: 3}
-      propertyPath: m_Color.b
-      value: 0.13757372
-      objectReference: {fileID: 0}
-    - target: {fileID: 2714611235813413886, guid: f6871787299342f43a1b473d075a4d8d, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2714611235813413886, guid: f6871787299342f43a1b473d075a4d8d, type: 3}
-      propertyPath: m_Color.r
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3515227325637328109, guid: f6871787299342f43a1b473d075a4d8d, type: 3}
       propertyPath: m_Name
       value: PLAYER
-      objectReference: {fileID: 0}
-    - target: {fileID: 3515227325637328109, guid: f6871787299342f43a1b473d075a4d8d, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4583664039207213793, guid: f6871787299342f43a1b473d075a4d8d, type: 3}
-      propertyPath: BonesLeft
-      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7476916984098124925, guid: f6871787299342f43a1b473d075a4d8d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -27449,17 +27406,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8823857069497089715, guid: f6871787299342f43a1b473d075a4d8d, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3515227325637328109, guid: f6871787299342f43a1b473d075a4d8d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 766189596}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6871787299342f43a1b473d075a4d8d, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
