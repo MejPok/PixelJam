@@ -16,17 +16,18 @@ public class ThrowingBones : MonoBehaviour
     }
 
     public void PutDownTheBone(){
-
+        GameObject bullet = Instantiate(bonePrefab, transform.position, Quaternion.identity);
     }
 
     public void ThrowTheBone(){
-        Vector2 shotPosition = new Vector2(0, 0);
-        
-        float angle = Mathf.Atan2(shotPosition.y, shotPosition.x) * Mathf.Rad2Deg;
+        Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 direction = (mouseWorldPos - (Vector2)transform.position).normalized;
+
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
         GameObject bullet = Instantiate(bonePrefab, transform.position, Quaternion.identity);
-
         bullet.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-        bullet.GetComponent<Rigidbody2D>().velocity = shotPosition * 20;
+
+        bullet.GetComponent<Rigidbody2D>().velocity = direction * 8f;
     }
 }
