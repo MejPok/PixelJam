@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6047379693434402241}
   - component: {fileID: 2714611235813413886}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.13757372, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -101,9 +101,10 @@ GameObject:
   - component: {fileID: 6633554001669676669}
   - component: {fileID: 8479278009436685277}
   - component: {fileID: 4583664039207213793}
-  m_Layer: 0
+  - component: {fileID: 1234599794039112706}
+  m_Layer: 6
   m_Name: PLAYER
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -229,11 +230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 12
-  movementStates:
-  - {fileID: 11400000, guid: ae29d03776b21354684a06c814b30f45, type: 2}
-  - {fileID: 11400000, guid: eb8ef1632a0613249acb1183ea503371, type: 2}
-  - {fileID: 11400000, guid: 62994552b481f3d4aa6701e151760900, type: 2}
-  - {fileID: 11400000, guid: 1bf6799246bf1874c9610e077436341c, type: 2}
+  movementState: {fileID: 0}
 --- !u!114 &6633554001669676669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -278,8 +275,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2be1bcb4ab32fc42b940e6e06d2d91d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BonesLeft: 0
+  BonesLeft: 20
   BonesMax: 20
+--- !u!114 &1234599794039112706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3515227325637328109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dd5724ecd895a0419480e97471f9e1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bc: {fileID: 0}
+  bonePrefab: {fileID: 2994431462379099033, guid: e6fbc5074d8166b4d93e51801c627de9, type: 3}
 --- !u!1 &8823857069497089715
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,7 +302,7 @@ GameObject:
   - component: {fileID: 4953188042234173314}
   - component: {fileID: 6639803432144894939}
   - component: {fileID: 8785340332656360516}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GroundBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
