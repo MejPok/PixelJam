@@ -13,5 +13,6 @@ public class JustArmsScriptable : ScriptableMovementState
 
     public override void Jump(){
         rb.velocity = new Vector2(rb.velocity.x, JumpForce * JumpMultiplier);
+        
     }
 }

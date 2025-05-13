@@ -29,21 +29,18 @@ public class GroundCheck : MonoBehaviour
 
     void Update()
     {
+        Grounded = isGrounded();
         if(!grounded){
             notGroundedTimer += Time.deltaTime;
         }
     }
-    public void OnCollisionEnter2D(Collision2D other)
+    public LayerMask groundLayer;
+    private bool isGrounded()
     {
-        if(other.gameObject.CompareTag("Floor")){
-            Grounded = true;
-        }
-    }
+        BoxCollider2D boxCollider = GetComponent<BoxCollider2D>();
 
-    public void OnCollisionExit2D(Collision2D other)
-    {
-        if(other.gameObject.CompareTag("Floor")){
-            Grounded = false;
-        }
+        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.1f, groundLayer);
+
+        return raycastHit.collider != null;
     }
 }

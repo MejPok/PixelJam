@@ -37,15 +37,19 @@ public class Jumping : MonoBehaviour
         
         if(!InJump){
             if (Input.GetKey(KeyCode.Space)){
+                
                 if(groundCheck.Grounded == true){
                     Debug.Log("Grounded jump");
                     Jump();
                     return true;
-                }
+                } 
 
                 if(groundCheck.notGroundedTimer < coyoteTimeAllowance){ // check for coyote
                     Debug.Log("Coyote jump");
+                    MakeSound();
                     Jump();
+
+                    
                     return true;
                 }
 
@@ -129,11 +133,24 @@ public class Jumping : MonoBehaviour
         state.rb = GetComponent<Rigidbody2D>();
         state.JumpForce = JumpForce;
 
+        state.audioClip = GetComponent<FXchoser>().audioClips[0];
+        state.transform = transform;
         state.Jump();
+        
 
         InJump = true;
         spacePressed = false;
         
+    }
+
+    void MakeSound(){
+        ScriptableMovementState state = pMovement.movementState;
+        state.rb = GetComponent<Rigidbody2D>();
+        state.JumpForce = JumpForce;
+
+        state.audioClip = GetComponent<FXchoser>().audioClips[0];
+        state.transform = transform;
+        state.PlayJumpSound();
     }
     void JumpNOINPUT(){
         ScriptableMovementState state = pMovement.movementState;

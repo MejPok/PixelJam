@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 872306641364954636}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.3713, z: 0}
+  m_LocalPosition: {x: 0.012, y: 0.41, z: 0}
   m_LocalScale: {x: 1, y: 1.7426, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -102,6 +102,7 @@ GameObject:
   - component: {fileID: 8479278009436685277}
   - component: {fileID: 4583664039207213793}
   - component: {fileID: 1234599794039112706}
+  - component: {fileID: 5164983282994857279}
   m_Layer: 6
   m_Name: PLAYER
   m_TagString: Player
@@ -263,6 +264,9 @@ MonoBehaviour:
   multiplier: 1
   timer: 0
   falling: 0
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!114 &4583664039207213793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -291,6 +295,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bc: {fileID: 0}
   bonePrefab: {fileID: 2994431462379099033, guid: e6fbc5074d8166b4d93e51801c627de9, type: 3}
+--- !u!114 &5164983282994857279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3515227325637328109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2614863466967744b8b0171aaa634cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClips:
+  - {fileID: 8300000, guid: a1168731745eee34ca2c63b4b93c41b2, type: 3}
 --- !u!1 &8823857069497089715
 GameObject:
   m_ObjectHideFlags: 0
@@ -356,7 +374,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.05346346, y: 0.030680168}
+  m_Offset: {x: 0.05000621, y: 0.03332544}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -367,7 +385,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.909523, y: 0.07959192}
+  m_Size: {x: 0.73665965, y: 0.07430138}
   m_EdgeRadius: 0
 --- !u!114 &8785340332656360516
 MonoBehaviour:
@@ -384,3 +402,6 @@ MonoBehaviour:
   grounded: 0
   notGroundedTimer: 0
   jumper: {fileID: 6633554001669676669}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 256
