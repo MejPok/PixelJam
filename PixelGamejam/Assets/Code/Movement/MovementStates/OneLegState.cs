@@ -19,11 +19,13 @@ public class OneLegState : ScriptableMovementState
             Vector2 force = new Vector2(horizontalInput * mySpeed, JumpForce * 5);
             if(Mathf.Abs(rb.velocity.x) < maxRollSpeed){
                 rb.AddForce(force);
+                
             }
 
         }
         else if (Input.GetKeyDown(KeyCode.Space)){
             rb.velocity = new Vector2(rb.velocity.x, JumpForce);
+            
         }
         
     }

@@ -27,6 +27,16 @@ public class ScriptableMovementState : ScriptableObject
 
     }
 
+    public AudioClip audioClip;
+    public Transform transform;
+    public virtual void PlayJumpSound(){
+        if(CanJump){
+            AudioClip clip = audioClip;
+            SoundManager.Instance.PlaySoundFX(clip, transform ,1);
+            
+        }
+    }
+
     
 
 }
