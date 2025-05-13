@@ -13,8 +13,11 @@ MonoBehaviour:
   m_Name: NoBody
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
-  JumpForce: 3
+  JumpForce: 5
   JumpMultiplier: 0
   CanJump: 0
   CanMove: 1
   CanThrow: 0
+  isGrounded: 1
+  maxRollSpeed: 4
+  jumper: {fileID: 0}

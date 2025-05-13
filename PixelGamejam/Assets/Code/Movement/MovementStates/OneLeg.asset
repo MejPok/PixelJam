@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ce260fdaeb7c684180499556f865ef7, type: 3}
+  m_Name: OneLeg
+  m_EditorClassIdentifier: 
+  rb: {fileID: 0}
+  JumpForce: 3
+  JumpMultiplier: 1
+  CanJump: 1
+  CanMove: 1
+  CanThrow: 1
+  isGrounded: 1
+  maxRollSpeed: 10
+  jumper: {fileID: 0}

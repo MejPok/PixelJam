@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
 
     Vector2 baseScale; //starting relative scale, so that it can proeprly rotate the sprite
 
-    public ScriptableMovementState[] movementStates; //container for the states
+    public ScriptableMovementState movementState; //container for the states
 
     private void Awake()
     {
@@ -21,13 +21,19 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        movementState = PlayerStats.ps.chooseCorrectState();
         Move();
         RotateSprite();
     }
 
     void Move(){
-        ScriptableMovementState state = movementStates[0];
+        ScriptableMovementState state = movementState;
+        
         state.rb = rb;
+        state.jumper = GetComponent<Jumping>();
+        state.JumpForce = GetComponent<Jumping>().JumpForce;
+        state.isGrounded = GetComponent<Jumping>().groundCheck.Grounded;
+
         state.Move(speed);
     }
 
