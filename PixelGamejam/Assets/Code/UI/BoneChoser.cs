@@ -33,13 +33,14 @@ public class BoneChoser : MonoBehaviour
 
     void Update()
     {
+        ThrowingBones.tb.bc = this;
         if(Input.GetKeyDown(KeyCode.E)){
 
             if(lastImageChosen != null){
                 if(boneChosen != "Skull"){
                     chosenButton.SetActive(false);
                     bonesDisabled.Add(chosenButton);
-                    PutDownTheBone();
+                    ThrowingBones.tb.PutDownTheBone();
                     lastImageChosen = null;
                 }
             }
@@ -50,7 +51,7 @@ public class BoneChoser : MonoBehaviour
                 if(boneChosen != "Skull"){
                     chosenButton.SetActive(false);
                     bonesDisabled.Add(chosenButton);
-                    ThrowTheBone();
+                    ThrowingBones.tb.ThrowTheBone();
                     lastImageChosen = null;
                 }
             }
@@ -58,11 +59,5 @@ public class BoneChoser : MonoBehaviour
         }
     }
 
-    void PutDownTheBone(){
-        
-    }
 
-    void ThrowTheBone(){
-
-    }
 }
