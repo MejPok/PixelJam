@@ -37,6 +37,10 @@ public class ScriptableMovementState : ScriptableObject
         }
     }
 
+    public virtual void Update(){
+
+    }
+
     
 
 }

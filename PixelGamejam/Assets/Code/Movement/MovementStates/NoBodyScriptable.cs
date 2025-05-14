@@ -6,6 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName ="NoBody")]
 public class NoBodyScriptable : ScriptableMovementState
 {
+    public float rollFriction;
     public override void Jump(){
         return;
     }
@@ -17,5 +18,19 @@ public class NoBodyScriptable : ScriptableMovementState
             rb.AddForce(force);
         }
         
+    }
+
+    public override void Update(){
+        // Pseudo rolling slowdown
+        if (isGrounded && Mathf.Abs(rb.velocity.x) > 0.01f)
+        {
+            float side = 1f;
+
+            if(rb.velocity.x > 0){
+                side *= -1;
+            }
+            
+            rb.velocity = new Vector2(rb.velocity.x + side * Mathf.Min(rollFriction, Mathf.Abs(rb.velocity.x)), rb.velocity.y);
+        }
     }
 }
