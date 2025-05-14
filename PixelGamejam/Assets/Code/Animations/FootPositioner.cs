@@ -29,9 +29,11 @@ public class FootPositioner : MonoBehaviour
     // the foot's displacement from body center on the X axis
     public float footDisplacementOnX = 0.25f;
 
+    private Vector3 midPos;
+
     private void Start()
     {
-        startPos = endPos = target.position;
+        startPos = midPos = endPos = target.position;
     }
 
     private void Update()
@@ -47,7 +49,12 @@ public class FootPositioner : MonoBehaviour
         // using ease in/ease out value will make the animation look more natural
         float easedLerp = EaseInOutCubic(lerp);
 
-        target.position = Vector3.Lerp(startPos, endPos, easedLerp);
+        // a lerping method that draws an arc using startPos, midPos, and endPos
+        target.position = Vector3.Lerp(
+            Vector3.Lerp(startPos, midPos, easedLerp),
+            Vector3.Lerp(midPos, endPos, easedLerp),
+            easedLerp
+            );
         lerp += Time.deltaTime * stepSpeed;
 
         // this foot can only move when: (1) the other foot finishes moving, (2) the other foot made the last step
@@ -58,6 +65,8 @@ public class FootPositioner : MonoBehaviour
         {
             CalculateNewStep();
         }
+
+
 
     }
     private float EaseInOutCubic(float x)
@@ -81,16 +90,21 @@ public class FootPositioner : MonoBehaviour
 
         // find end target position
         endPos = target.position + posDiff;
+
+        // midPos is the mid point between startPos and endPos, but lifted up a bit depending on stepSize
+        float stepSize = Vector3.Distance(startPos, endPos);
+        midPos = startPos + posDiff / 2f + new Vector3(0, stepSize * 0.8f);
     }
 
- 
+
 
     private void UpdateBalance()
     {
         // get center of mass in world position
         float centerOfMass = playerObj.transform.position.x;
+
         // if center of mass is between two feet, the body is balanced
-        isBalanced = IsFloatInRange(centerOfMass, target.position.x, otherFoot.target.position.x);
+        isBalanced = IsFloatInRange(centerOfMass, target.position.x - footDisplacementOnX, otherFoot.target.position.x - otherFoot.footDisplacementOnX);
     }
 
     /// <summary>
