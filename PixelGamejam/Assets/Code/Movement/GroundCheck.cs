@@ -32,6 +32,8 @@ public class GroundCheck : MonoBehaviour
         Grounded = isGrounded();
         if(!grounded){
             notGroundedTimer += Time.deltaTime;
+        } else {
+            notGroundedTimer = 0f;
         }
     }
     public LayerMask groundLayer;
