@@ -5,6 +5,7 @@ using UnityEngine;
 public class OneLegState : ScriptableMovementState
 {
     float mySpeed;
+    public float rollFriction;
     public override void Move(float speed)
     {
         mySpeed = speed;
@@ -19,7 +20,6 @@ public class OneLegState : ScriptableMovementState
             Vector2 force = new Vector2(horizontalInput * mySpeed, JumpForce * 5);
             if(Mathf.Abs(rb.velocity.x) < maxRollSpeed){
                 rb.AddForce(force);
-                
             }
 
         }
@@ -28,5 +28,19 @@ public class OneLegState : ScriptableMovementState
             
         }
         
+    }
+
+    public override void Update(){
+        // Pseudo rolling slowdown
+        if (isGrounded && Mathf.Abs(rb.velocity.x) > 0.01f)
+        {
+            float side = 1f;
+
+            if(rb.velocity.x > 0){
+                side *= -1;
+            }
+            
+            rb.velocity = new Vector2(rb.velocity.x + side * Mathf.Min(rollFriction, Mathf.Abs(rb.velocity.x)), rb.velocity.y);
+        }
     }
 }
