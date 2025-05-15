@@ -53,7 +53,10 @@ public class BoneChoser : MonoBehaviour
                     chosenButton.SetActive(false);
                     bonesDisabled.Add(chosenButton);
                     ThrowingBones.tb.PutDownTheBone(boneChosen, chosenButton.GetComponent<Image>().sprite);
+                    chosenButton.GetComponent<Image>().color = Color.white;
                     lastImageChosen = null;
+                    chosenButton = null;
+                    boneChosen = null;
                 }
             }
 
@@ -77,11 +80,17 @@ public class BoneChoser : MonoBehaviour
                     {
                         ThrowingBones.tb.ThrowTheBone(boneChosen, chosenButton.GetComponent<Image>().sprite);
                         chosenButton.GetComponent<Image>().color = Color.white;
+                        lastImageChosen = null;
+                        chosenButton = null;
+                        boneChosen = null;
                     }
                     else
                     {
                         ThrowingBones.tb.PutDownTheBone(boneChosen, chosenButton.GetComponent<Image>().sprite);
                         chosenButton.GetComponent<Image>().color = Color.white;
+                        lastImageChosen = null;
+                        chosenButton = null;
+                        boneChosen = null;
                     }
                 }
             }
