@@ -47,6 +47,7 @@ public class Jumping : MonoBehaviour
                 if(groundCheck.notGroundedTimer < coyoteTimeAllowance){ // check for coyote
                     Debug.Log("Coyote jump");
                     MakeSound();
+                    AnimatorControl.animatorControl.Jump();
                     Jump();
 
                     
@@ -104,6 +105,8 @@ public class Jumping : MonoBehaviour
             if(groundCheck.notGroundedTimer < coyoteTimeAllowance){ // check for coyote
                 Debug.Log("Coyote jump");
                 JumpNOINPUT();
+                MakeSound();
+                AnimatorControl.animatorControl.Jump();
                 return true;
             }
 

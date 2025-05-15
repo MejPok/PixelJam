@@ -15,7 +15,7 @@ public class CollectBones : MonoBehaviour
                 {
                     fakePickup = false;
                 }
-                
+
                 List<string> names = new List<string>();
                 for (int i = 0; i < BoneChoser.instance.bonesDisabled.Count; i++)
                 {
@@ -24,8 +24,7 @@ public class CollectBones : MonoBehaviour
 
                 if (names.Contains(other.gameObject.name))
                 {
-                    BoneChoser.instance.GetBoneBack(other.gameObject.name);
-                    Destroy(other.gameObject);
+                    BoneChoser.instance.GetBoneBack(other.gameObject.name, other.gameObject);
                 }
             }
         }

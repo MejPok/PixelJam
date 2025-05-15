@@ -36,9 +36,12 @@ public class BoneChoser : MonoBehaviour
         lastImageChosen = gm.GetComponent<Image>();
     }
 
-    void Update()
-    {
-        ThrowingBones.tb.bc = this;
+    bool TryPutDown() {
+        List<string> names = new List<string>();
+        for (int i = 0; i < bonesDisabled.Count; i++)
+        {
+            names.Add(bonesDisabled[i].name);
+        }
 
         if (Input.GetKeyDown(KeyCode.E) || fakePutdown)
         {
@@ -50,18 +53,55 @@ public class BoneChoser : MonoBehaviour
             {
                 if (boneChosen != "Skull")
                 {
+                    if (boneChosen == "Spine")
+                    {
+                        foreach (GameObject bone in boneButtons)
+                        {
+                            if (!names.Contains(bone.name) && bone.name != "Skull" && bone.name != "Ribcage" && bone.name != "Spleen")
+                            {
+                                bonesDisabled.Add(bone);
+                                bone.SetActive(false);
+
+                                ThrowingBones.tb.PutDownTheBone(bone.name, bone.GetComponent<Image>().sprite);
+                                lastImageChosen = null;
+                                chosenButton = null;
+                                boneChosen = null;
+                            }
+                        }
+
+                        if (chosenButton != null)
+                        {
+                            ResetStates();
+                        }
+                        else
+                        {
+                            lastImageChosen = null;
+                            chosenButton = null;
+                            boneChosen = null;
+                        }
+                        return true;
+                    }
+
                     chosenButton.SetActive(false);
                     bonesDisabled.Add(chosenButton);
                     ThrowingBones.tb.PutDownTheBone(boneChosen, chosenButton.GetComponent<Image>().sprite);
-                    chosenButton.GetComponent<Image>().color = Color.white;
-                    lastImageChosen = null;
-                    chosenButton = null;
-                    boneChosen = null;
+                    ResetStates();
+                    return true;
                 }
             }
 
         }
-        else if (Input.GetKeyDown(KeyCode.R) || fakeThrow)
+        return false;
+    }
+
+    void TryThrow() {
+        List<string> names = new List<string>();
+        for (int i = 0; i < bonesDisabled.Count; i++)
+        {
+            names.Add(bonesDisabled[i].name);
+        }
+
+        if (Input.GetKeyDown(KeyCode.R) || fakeThrow)
         {
             if (fakeThrow)
             {
@@ -72,6 +112,46 @@ public class BoneChoser : MonoBehaviour
             {
                 if (boneChosen != "Skull")
                 {
+                    if (boneChosen == "Spine")
+                    {
+                        foreach (GameObject bone in boneButtons)
+                        {
+                            if (!names.Contains(bone.name) && bone.name != "Skull" && bone.name != "Ribcage" && bone.name != "Spleen")
+                            {
+                                bonesDisabled.Add(bone);
+                                bone.SetActive(false);
+
+                                if (PlayerMovement.pm.movementState.CanThrow)
+                                {
+                                    ThrowingBones.tb.ThrowTheBone(bone.name, bone.GetComponent<Image>().sprite);
+                                    lastImageChosen = null;
+                                    chosenButton = null;
+                                    boneChosen = null;
+                                }
+                                else
+                                {
+                                    ThrowingBones.tb.PutDownTheBone(bone.name, bone.GetComponent<Image>().sprite);
+                                    lastImageChosen = null;
+                                    chosenButton = null;
+                                    boneChosen = null;
+                                }
+
+                            }
+                        }
+
+                        if (chosenButton != null)
+                        {
+                            ResetStates();
+                        }
+                        else
+                        {
+                            lastImageChosen = null;
+                            chosenButton = null;
+                            boneChosen = null;
+                        }
+                        return;
+                    }
+
                     chosenButton.SetActive(false);
                     bonesDisabled.Add(chosenButton);
                     lastImageChosen = null;
@@ -79,23 +159,39 @@ public class BoneChoser : MonoBehaviour
                     if (PlayerMovement.pm.movementState.CanThrow)
                     {
                         ThrowingBones.tb.ThrowTheBone(boneChosen, chosenButton.GetComponent<Image>().sprite);
-                        chosenButton.GetComponent<Image>().color = Color.white;
-                        lastImageChosen = null;
-                        chosenButton = null;
-                        boneChosen = null;
+                        ResetStates();
                     }
                     else
                     {
                         ThrowingBones.tb.PutDownTheBone(boneChosen, chosenButton.GetComponent<Image>().sprite);
-                        chosenButton.GetComponent<Image>().color = Color.white;
-                        lastImageChosen = null;
-                        chosenButton = null;
-                        boneChosen = null;
+                        ResetStates();
                     }
                 }
             }
 
         }
+    }
+
+    void ResetStates()
+    {
+        chosenButton.GetComponent<Image>().color = Color.white;
+        lastImageChosen = null;
+        chosenButton = null;
+        boneChosen = null;
+    }
+
+
+
+    void Update()
+    {
+        ThrowingBones.tb.bc = this;
+
+        if (!TryPutDown())
+        {
+            TryThrow();
+        }
+        
+        
 
         CheckForMainBones();
 
@@ -123,11 +219,22 @@ public class BoneChoser : MonoBehaviour
         {
             GameObject bone = boneButtons.ToList().Find(x => x.name == "Spleen");
             bone.SetActive(false);
+
+            if (!names.Contains(bone.name))
+            {
+                bonesDisabled.Add(bone);
+            }
+            
         }
         else
         {
             GameObject bone = boneButtons.ToList().Find(x => x.name == "Spleen");
             bone.SetActive(true);
+            if (names.Contains(bone.name))
+            {
+                bonesDisabled.Remove(bone);
+            }
+            
         }
 
 
@@ -135,15 +242,24 @@ public class BoneChoser : MonoBehaviour
         {
             GameObject bone = boneButtons.ToList().Find(x => x.name == "Ribcage");
             bone.SetActive(false);
+            if (!names.Contains(bone.name))
+            {
+                bonesDisabled.Add(bone);
+            }
+            
         }
         else
         {
             GameObject bone = boneButtons.ToList().Find(x => x.name == "Ribcage");
             bone.SetActive(true);
+            if (names.Contains(bone.name))
+            {
+                bonesDisabled.Remove(bone);
+            }
         }
     }
 
-    public void GetBoneBack(string name)
+    public void GetBoneBack(string name, GameObject sender)
     {
         List<string> names = new List<string>();
         for (int i = 0; i < BoneChoser.instance.bonesDisabled.Count; i++)
@@ -153,12 +269,19 @@ public class BoneChoser : MonoBehaviour
 
         if (names.Contains(name))
         {
+            if (names.Contains("Spine") && name != "Spine")
+            {
+                Debug.Log("Cant allow the joinment of " + name + " because we dont have spine");
+                return;
+            }
+
             foreach (GameObject button in boneButtons)
             {
                 if (button.name == name)
                 {
                     bonesDisabled.Remove(button);
                     button.SetActive(true);
+                    Destroy(sender);
                     return;
                 }
             }
