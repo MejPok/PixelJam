@@ -15,9 +15,11 @@ MonoBehaviour:
   rb: {fileID: 0}
   JumpForce: 10
   JumpMultiplier: 0.4
-  CanJump: 0
+  CanJump: 1
   CanMove: 1
   CanThrow: 1
   isGrounded: 1
   maxRollSpeed: 5
   jumper: {fileID: 0}
+  audioClip: {fileID: 0}
+  transform: {fileID: 0}

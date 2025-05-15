@@ -21,3 +21,6 @@ MonoBehaviour:
   isGrounded: 1
   maxRollSpeed: 4
   jumper: {fileID: 0}
+  audioClip: {fileID: 0}
+  transform: {fileID: 0}
+  rollFriction: 0.03

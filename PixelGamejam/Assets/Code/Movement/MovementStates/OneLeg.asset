@@ -13,11 +13,14 @@ MonoBehaviour:
   m_Name: OneLeg
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
-  JumpForce: 3
+  JumpForce: 5
   JumpMultiplier: 1
   CanJump: 1
   CanMove: 1
   CanThrow: 1
-  isGrounded: 1
+  isGrounded: 0
   maxRollSpeed: 10
   jumper: {fileID: 0}
+  audioClip: {fileID: 0}
+  transform: {fileID: 0}
+  rollFriction: 0.03
