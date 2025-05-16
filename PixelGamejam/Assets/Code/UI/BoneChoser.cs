@@ -15,10 +15,15 @@ public class BoneChoser : MonoBehaviour
 
     public GameObject[] boneButtons;
     public List<GameObject> bonesDisabled;
-    void Start()
+
+    void Awake()
     {
         instance = this;
         bonesDisabled = new List<GameObject>();
+    }
+    void Start()
+    {
+
     }
 
     public void GetThisBone(string bone, GameObject gm)
@@ -36,7 +41,8 @@ public class BoneChoser : MonoBehaviour
         lastImageChosen = gm.GetComponent<Image>();
     }
 
-    bool TryPutDown() {
+    bool TryPutDown()
+    {
         List<string> names = new List<string>();
         for (int i = 0; i < bonesDisabled.Count; i++)
         {
@@ -94,7 +100,8 @@ public class BoneChoser : MonoBehaviour
         return false;
     }
 
-    void TryThrow() {
+    void TryThrow()
+    {
         List<string> names = new List<string>();
         for (int i = 0; i < bonesDisabled.Count; i++)
         {
@@ -191,7 +198,10 @@ public class BoneChoser : MonoBehaviour
             TryThrow();
         }
 
-
+        foreach (GameObject bone in bonesDisabled)
+        {
+            Debug.Log("" + bone.name);
+        }
 
         CheckForMainBones();
 
@@ -234,7 +244,7 @@ public class BoneChoser : MonoBehaviour
             {
                 bonesDisabled.Add(bone);
             }
-            
+
         }
         else
         {
@@ -244,7 +254,7 @@ public class BoneChoser : MonoBehaviour
             {
                 bonesDisabled.Remove(bone);
             }
-            
+
         }
 
 
@@ -256,7 +266,7 @@ public class BoneChoser : MonoBehaviour
             {
                 bonesDisabled.Add(bone);
             }
-            
+
         }
         else
         {
@@ -297,6 +307,7 @@ public class BoneChoser : MonoBehaviour
             {
                 if (button.name == name)
                 {
+                    LevelManager.instance.Player.transform.Translate(new Vector2(0, 1f));
                     cantPickUp = true;
                     bonesDisabled.Remove(button);
                     button.SetActive(true);
@@ -307,5 +318,48 @@ public class BoneChoser : MonoBehaviour
         }
     }
 
+    public void RemoveTheseBones(string[] bonesToRemove)
+    {
+        GetAllBonesBack();
 
+        List<string> names = new List<string>();
+        for (int i = 0; i < bonesToRemove.Length; i++)
+        {
+            names.Add(bonesToRemove[i]);
+        }
+
+        foreach (GameObject bone in boneButtons)
+        {
+            if (names.Contains(bone.name))
+            {
+                bonesDisabled.Add(bone);
+                bone.SetActive(false);
+
+                lastImageChosen = null;
+                chosenButton = null;
+                boneChosen = null;
+            }
+
+        }
+
+    }
+
+    void GetAllBonesBack()
+    {
+        List<GameObject> tester = new List<GameObject>();
+        foreach (GameObject bone in bonesDisabled)
+        {
+            tester.Add(bone);
+        }
+        
+        foreach (GameObject bone in tester)
+        {
+            bonesDisabled.Remove(bone);
+            bone.SetActive(true);
+
+            lastImageChosen = null;
+            chosenButton = null;
+            boneChosen = null;
+        }
+    }
 }
