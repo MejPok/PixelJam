@@ -75,11 +75,19 @@ public class PlayerStats : MonoBehaviour
             return stateChosen;
         }
 
-        if(OneLeg){ // has one leg
+        if (!hasntBothArms && !hasntOneLeg)
+        {
+            allMovementStates[0].CanThrow = true;
+            return allMovementStates[0];
+        }
+
+        if (OneLeg)
+        { // has one leg
             return allMovementStates[1];
         }
 
         if(OneArm){ // has one arm
+            allMovementStates[0].CanThrow = true;
             return allMovementStates[0];
         }
 

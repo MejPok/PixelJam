@@ -190,10 +190,20 @@ public class BoneChoser : MonoBehaviour
         {
             TryThrow();
         }
-        
-        
+
+
 
         CheckForMainBones();
+
+        if (cantPickUp)
+        {
+            timer += Time.deltaTime;
+            if (timer >= 0.1f)
+            {
+                cantPickUp = false;
+                timer = 0;
+            }
+        }
 
     }
     bool fakeThrow;
@@ -259,8 +269,16 @@ public class BoneChoser : MonoBehaviour
         }
     }
 
+    float timer;
+    bool cantPickUp;
+
     public void GetBoneBack(string name, GameObject sender)
     {
+        if (cantPickUp)
+        {
+            Debug.Log("Cant pick up bones because for cooldown");
+            return;
+        }
         List<string> names = new List<string>();
         for (int i = 0; i < BoneChoser.instance.bonesDisabled.Count; i++)
         {
@@ -279,6 +297,7 @@ public class BoneChoser : MonoBehaviour
             {
                 if (button.name == name)
                 {
+                    cantPickUp = true;
                     bonesDisabled.Remove(button);
                     button.SetActive(true);
                     Destroy(sender);
