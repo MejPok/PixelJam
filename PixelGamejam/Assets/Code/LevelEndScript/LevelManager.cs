@@ -44,6 +44,7 @@ public class LevelManager : MonoBehaviour
         roomActive = roomsInScene[currentRoomOnLevel - 1];
 
         BoneChoser.instance.RemoveTheseBones(roomActive.bonesRequiredRemoved);
+        DeleteBones();
 
         roomActive.StartGame(Player);
         activeMap = roomActive.activeMap;
