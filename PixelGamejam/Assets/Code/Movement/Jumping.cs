@@ -13,9 +13,12 @@ public class Jumping : MonoBehaviour
     PlayerMovement pMovement;
     Rigidbody2D rb;
 
+    FastFalling ff;
+
     public GroundCheck groundCheck;
 
     void Start(){
+        ff = GetComponent<FastFalling>();
         pMovement = GetComponent<PlayerMovement>();
         rb = GetComponent<Rigidbody2D>();
 
@@ -34,11 +37,10 @@ public class Jumping : MonoBehaviour
     
 
     public bool CheckForJumping(){
-        
         if(!InJump){
             if (Input.GetKey(KeyCode.Space)){
                 
-                if(groundCheck.Grounded == true){
+                if(groundCheck.Grounded == true || !ff.falling){
                     Debug.Log("Grounded jump");
                     Jump();
                     return true;

@@ -90,7 +90,8 @@ MonoBehaviour:
   currentRoomOnLevel: 0
   roomsInScene:
   - {fileID: 11400000, guid: 975ee65e33bab1a499669f1302aa4402, type: 2}
-  - {fileID: 11400000, guid: 2af070f70cb7fd949ace3cb1645642d5, type: 2}
+  - {fileID: 11400000, guid: aca92ee8b04986f47bf916a8d74d7b2a, type: 2}
+  - {fileID: 11400000, guid: 40d5725008042af44b995bfce0a09d4e, type: 2}
   roomActive: {fileID: 0}
   activeMap: {fileID: 0}
   Player: {fileID: 0}

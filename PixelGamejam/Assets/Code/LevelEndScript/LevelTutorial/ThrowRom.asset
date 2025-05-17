@@ -10,10 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 57458e1256728b342991b57919ff8b41, type: 3}
-  m_Name: NextRoom
+  m_Name: ThrowRom
   m_EditorClassIdentifier: 
-  bonesRequiredRemoved:
-  - Spine
+  bonesRequiredRemoved: []
   positionWhereToSpawnPlayer: {fileID: 0}
   activeMap: {fileID: 0}
-  map: {fileID: 8367192280212610214, guid: a69bbec4d1f731a4db63363b3f208268, type: 3}
+  map: {fileID: 8367192280212610214, guid: e39dc0cc027938c4e86ba0c85fda5ae1, type: 3}

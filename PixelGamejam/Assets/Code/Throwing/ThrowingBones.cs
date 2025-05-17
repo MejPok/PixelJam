@@ -16,12 +16,15 @@ public class ThrowingBones : MonoBehaviour
         tb = this;
     }
 
-    public void PutDownTheBone(string NAME, Sprite sprite){
+    public void PutDownTheBone(string NAME, Sprite sprite)
+    {
         GameObject bullet = Instantiate(bonePrefab, transform.position, Quaternion.identity);
         bullet.GetComponent<BoneData>().CreateBone(NAME, sprite);
+        LevelManager.instance.AddBoneToRoom(bullet);
     }
 
-    public void ThrowTheBone(string NAME, Sprite sprite){
+    public void ThrowTheBone(string NAME, Sprite sprite)
+    {
         Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 direction = (mouseWorldPos - (Vector2)transform.position).normalized;
 
@@ -30,8 +33,10 @@ public class ThrowingBones : MonoBehaviour
         GameObject bullet = Instantiate(bonePrefab, transform.position, Quaternion.identity);
         bullet.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
 
-        bullet.GetComponent<Rigidbody2D>().velocity = direction * 8f;
+        bullet.GetComponent<Rigidbody2D>().velocity = direction * 15f;
 
         bullet.GetComponent<BoneData>().CreateBone(NAME, sprite);
+
+        LevelManager.instance.AddBoneToRoom(bullet);
     }
 }

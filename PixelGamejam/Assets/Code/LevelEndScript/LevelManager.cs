@@ -7,7 +7,7 @@ public class LevelManager : MonoBehaviour
 {
 
     public static LevelManager instance;
-    public int currentRoomOnLevel = 0;
+    public int currentRoomOnLevel = 1;
 
     public ScriptableRoom[] roomsInScene;
     public ScriptableRoom roomActive;
@@ -30,6 +30,7 @@ public class LevelManager : MonoBehaviour
 
     void Start()
     {
+        bonesInRoom = new List<GameObject>();
         LoadRoom();
     }
 
@@ -61,14 +62,33 @@ public class LevelManager : MonoBehaviour
             Destroy(activeMap);
         }
 
-        roomActive = roomsInScene[currentRoomOnLevel];
+        currentRoomOnLevel += 1;
+
+        roomActive = roomsInScene[currentRoomOnLevel - 1];
 
         BoneChoser.instance.RemoveTheseBones(roomActive.bonesRequiredRemoved);
 
         roomActive.StartGame(Player);
         activeMap = roomActive.activeMap;
 
-        currentRoomOnLevel += 1;
+        DeleteBones();
+        Debug.Log("created map level " + currentRoomOnLevel);
+    }
+
+    List<GameObject> bonesInRoom;
+
+    public void AddBoneToRoom(GameObject bone)
+    {
+        bonesInRoom.Add(bone);
+    }
+
+    void DeleteBones()
+    {
+        foreach (GameObject bone in bonesInRoom)
+        {
+            Destroy(bone);
+        }
+        bonesInRoom.Clear();
     }
 
     void NextLevel() 

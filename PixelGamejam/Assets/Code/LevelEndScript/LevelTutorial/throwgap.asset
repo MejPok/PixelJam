@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 57458e1256728b342991b57919ff8b41, type: 3}
-  m_Name: FirstRoom
+  m_Name: throwgap
   m_EditorClassIdentifier: 
   bonesRequiredRemoved: []
   positionWhereToSpawnPlayer: {fileID: 0}
   activeMap: {fileID: 0}
-  map: {fileID: 8367192280212610214, guid: 19266d85346e0604ba9d4c8c7750deb8, type: 3}
+  map: {fileID: 8367192280212610214, guid: e39dc0cc027938c4e86ba0c85fda5ae1, type: 3}
