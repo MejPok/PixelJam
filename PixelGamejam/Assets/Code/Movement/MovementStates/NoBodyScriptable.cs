@@ -12,9 +12,11 @@ public class NoBodyScriptable : ScriptableMovementState
     }
 
     public override void Move(float speed){
-        float horizontalInput = Input.GetAxis("Horizontal"); //Important!! add new input for controller inputs
-        Vector2 force = new Vector2(horizontalInput * speed, 0);
-        if(Math.Abs(rb.velocity.x) < maxRollSpeed){
+        float horizontalInput = Input.GetAxis("Horizontal");
+
+        if (Mathf.Abs(rb.velocity.x) < maxRollSpeed || Mathf.Sign(horizontalInput) != Mathf.Sign(rb.velocity.x))
+        {
+            Vector2 force = new Vector2(horizontalInput * speed, 0);
             rb.AddForce(force);
         }
         
@@ -22,15 +24,13 @@ public class NoBodyScriptable : ScriptableMovementState
 
     public override void Update(){
         // Pseudo rolling slowdown
-        if (isGrounded && Mathf.Abs(rb.velocity.x) > 0.01f)
-        {
-            float side = 1f;
+        float horizontalInput = Input.GetAxis("Horizontal");
 
-            if(rb.velocity.x > 0){
-                side *= -1;
-            }
-            
-            rb.velocity = new Vector2(rb.velocity.x + side * Mathf.Min(rollFriction, Mathf.Abs(rb.velocity.x)), rb.velocity.y);
+        if (isGrounded && Mathf.Abs(horizontalInput) < 0.01f && Mathf.Abs(rb.velocity.x) > 0.01f)
+        {
+            float frictionForce = Mathf.Min(rollFriction, Mathf.Abs(rb.velocity.x));
+            float newXVelocity = rb.velocity.x - Mathf.Sign(rb.velocity.x) * frictionForce;
+            rb.velocity = new Vector2(newXVelocity, rb.velocity.y);
         }
     }
 }

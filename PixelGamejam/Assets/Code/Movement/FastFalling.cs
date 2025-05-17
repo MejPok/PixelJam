@@ -10,18 +10,21 @@ public class FastFalling : MonoBehaviour
     public bool falling;
     void Update()
     {
-        falling = !isGrounded();
-        
+        falling = !IsGrounded();
+
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         Jumping jumper = GetComponent<Jumping>();
 
-        if(jumper.groundCheck.Grounded == false){
+        if (!falling || !jumper.groundCheck.Grounded){
             
+            timer = 0;
+
+            rb.gravityScale = 1;
+        } else{
             timer += Time.deltaTime;
 
             rb.gravityScale = Mathf.Max(1, timer * multiplier);
-        } else {
-            
+
             timer = 0;
 
             rb.gravityScale = 1;
@@ -30,12 +33,18 @@ public class FastFalling : MonoBehaviour
     }
 
     public LayerMask groundLayer;
-    private bool isGrounded()
+    private bool IsGrounded()
     {
         BoxCollider2D boxCollider = GetComponent<BoxCollider2D>();
+        float rayLength = 0.1f;
 
-        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, new Vector2(0.1f, 0.1f), 0, Vector2.down, 0.1f, groundLayer);
+        // Cast straight down from the center of the bottom of the collider
+        Vector2 origin = new Vector2(boxCollider.bounds.center.x, boxCollider.bounds.min.y);
+        RaycastHit2D hit = Physics2D.Raycast(origin, Vector2.down, rayLength, groundLayer);
 
-        return raycastHit.collider != null;
+        // Debug: draw the ray
+        Debug.DrawRay(origin, Vector2.down * rayLength, hit.collider != null ? Color.green : Color.red);
+
+        return hit.collider != null;
     }
 }

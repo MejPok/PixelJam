@@ -10,7 +10,7 @@ public class GiveUpButton : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            LevelManager.instance.Reload();
         }
     }
 }
