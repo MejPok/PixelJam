@@ -351,7 +351,7 @@ public class BoneChoser : MonoBehaviour
         {
             tester.Add(bone);
         }
-        
+
         foreach (GameObject bone in tester)
         {
             bonesDisabled.Remove(bone);
@@ -361,5 +361,26 @@ public class BoneChoser : MonoBehaviour
             chosenButton = null;
             boneChosen = null;
         }
+    }
+
+    public int CalculatePlayerWeight()
+    {
+        var CountableBones = new List<GameObject>();
+        foreach (GameObject bone in boneButtons)
+        {
+            if (bone.name != "Spleen" && bone.name != "Ribcage")
+                CountableBones.Add(bone);
+        }
+
+        foreach (GameObject bone in bonesDisabled)
+        {
+            if (CountableBones.Contains(bone))
+            {
+                CountableBones.Remove(bone);
+            }
+        }
+
+        return CountableBones.Count;
+
     }
 }

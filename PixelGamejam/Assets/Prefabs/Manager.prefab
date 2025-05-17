@@ -92,6 +92,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 975ee65e33bab1a499669f1302aa4402, type: 2}
   - {fileID: 11400000, guid: aca92ee8b04986f47bf916a8d74d7b2a, type: 2}
   - {fileID: 11400000, guid: 40d5725008042af44b995bfce0a09d4e, type: 2}
+  - {fileID: 11400000, guid: 1fe4b473b1ae2af48a53f5756c9297e3, type: 2}
+  - {fileID: 11400000, guid: 19dd455b6a4138a45ac35f31e5b6a1f0, type: 2}
+  - {fileID: 11400000, guid: cef68ffe75601b04e9d18980922c4480, type: 2}
+  - {fileID: 11400000, guid: c194a14b31363eb479c83346cfbb85e4, type: 2}
   roomActive: {fileID: 0}
   activeMap: {fileID: 0}
   Player: {fileID: 0}

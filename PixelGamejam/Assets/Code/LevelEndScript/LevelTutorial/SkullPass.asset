@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 57458e1256728b342991b57919ff8b41, type: 3}
-  m_Name: throwgap
+  m_Name: SkullPass
   m_EditorClassIdentifier: 
   bonesRequiredRemoved: []
   positionWhereToSpawnPlayer: {fileID: 0}
   activeMap: {fileID: 0}
-  map: {fileID: 8367192280212610214, guid: 915968b502fe3614fb0a2df7354d978c, type: 3}
+  map: {fileID: 8367192280212610214, guid: 48376e03cb0fca043b961f18234ea090, type: 3}

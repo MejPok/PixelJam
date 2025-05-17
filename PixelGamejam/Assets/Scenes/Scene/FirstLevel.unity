@@ -140,14 +140,6 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 490757468}
-    - target: {fileID: 2011222381957973248, guid: 4e4776397280b7041944b1b699e0f26b, type: 3}
-      propertyPath: roomsInScene.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2011222381957973248, guid: 4e4776397280b7041944b1b699e0f26b, type: 3}
-      propertyPath: roomsInScene.Array.data[1]
-      value: 
-      objectReference: {fileID: 11400000, guid: 2af070f70cb7fd949ace3cb1645642d5, type: 2}
     - target: {fileID: 3645545832404769041, guid: 4e4776397280b7041944b1b699e0f26b, type: 3}
       propertyPath: m_Name
       value: Manager
