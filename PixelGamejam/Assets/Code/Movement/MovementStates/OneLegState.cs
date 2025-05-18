@@ -10,6 +10,15 @@ public class OneLegState : ScriptableMovementState
     {
         mySpeed = speed;
         jumper.CheckForJumpingNOINPUT(); // HAS TO BE NOINPUT OR ELSE IT WOULD WAIT FOR SPACE KEY PRESSED
+
+
+        float horizontalInput = Input.GetAxis("Horizontal");
+        
+        if (Mathf.Abs(horizontalInput) > 0)
+        {
+            Vector2 force = new Vector2(horizontalInput * 1.5f, 0.01f);
+            rb.AddForce(force);
+        }
     }
 
     public override void Jump()

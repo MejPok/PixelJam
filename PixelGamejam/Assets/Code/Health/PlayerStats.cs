@@ -77,14 +77,20 @@ public class PlayerStats : MonoBehaviour
 
         if (!hasntBothArms && !hasntOneLeg)
         {
-            Debug.Log("pls21");
-
             allMovementStates[0].CanThrow = true;
             return allMovementStates[0];
         }
 
         if (OneLeg)
         { // has one leg
+            if (OneArm || !hasntBothArms)
+            {
+                allMovementStates[1].CanThrow = true;
+            }
+            else
+            {
+                allMovementStates[1].CanThrow = false;
+            }
             return allMovementStates[1];
         }
 

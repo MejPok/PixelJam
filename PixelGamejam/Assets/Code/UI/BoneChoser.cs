@@ -72,6 +72,7 @@ public class BoneChoser : MonoBehaviour
                                 lastImageChosen = null;
                                 chosenButton = null;
                                 boneChosen = null;
+                                boneButtons.ToList().Find(x => x.name == bone.name).GetComponent<Image>().color = Color.white;
                             }
                         }
 
@@ -85,6 +86,7 @@ public class BoneChoser : MonoBehaviour
                             chosenButton = null;
                             boneChosen = null;
                         }
+                        boneButtons.ToList().Find(x => x.name == "Spine").GetComponent<Image>().color = Color.white;
                         return true;
                     }
 
@@ -131,6 +133,7 @@ public class BoneChoser : MonoBehaviour
                                 if (PlayerMovement.pm.movementState.CanThrow)
                                 {
                                     ThrowingBones.tb.ThrowTheBone(bone.name, bone.GetComponent<Image>().sprite);
+                                    
                                     lastImageChosen = null;
                                     chosenButton = null;
                                     boneChosen = null;
@@ -138,11 +141,13 @@ public class BoneChoser : MonoBehaviour
                                 else
                                 {
                                     ThrowingBones.tb.PutDownTheBone(bone.name, bone.GetComponent<Image>().sprite);
+                                    
                                     lastImageChosen = null;
                                     chosenButton = null;
                                     boneChosen = null;
                                 }
 
+                                boneButtons.ToList().Find(x => x.name == bone.name).GetComponent<Image>().color = Color.white;
                             }
                         }
 
@@ -152,14 +157,18 @@ public class BoneChoser : MonoBehaviour
                         }
                         else
                         {
+                            
                             lastImageChosen = null;
                             chosenButton = null;
                             boneChosen = null;
                         }
+
+                        boneButtons.ToList().Find(x => x.name == "Spine").GetComponent<Image>().color = Color.white;
                         return;
                     }
 
                     chosenButton.SetActive(false);
+                    chosenButton.GetComponent<Image>().color = Color.white;
                     bonesDisabled.Add(chosenButton);
                     lastImageChosen = null;
 
@@ -322,11 +331,12 @@ public class BoneChoser : MonoBehaviour
     public void RemoveTheseBones(string[] bonesToRemove)
     {
         GetAllBonesBack();
-
+        Debug.Log("Trying to delete bones for level");
         List<string> names = new List<string>();
         for (int i = 0; i < bonesToRemove.Length; i++)
         {
             names.Add(bonesToRemove[i]);
+            
         }
 
         foreach (GameObject bone in boneButtons)
@@ -335,6 +345,7 @@ public class BoneChoser : MonoBehaviour
             {
                 bonesDisabled.Add(bone);
                 bone.SetActive(false);
+                Debug.Log("Removed bone for level, " + bone.name);
 
                 lastImageChosen = null;
                 chosenButton = null;
@@ -387,6 +398,7 @@ public class BoneChoser : MonoBehaviour
 
     public GameObject Arms;
     public GameObject Legs;
+    
     void SetCollidersCorrect()
     {
         List<string> names = new List<string>();
