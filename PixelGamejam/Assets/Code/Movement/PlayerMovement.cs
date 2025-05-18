@@ -6,6 +6,9 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public static PlayerMovement pm;
+
+    public Transform[] positionStates;
+
     public float speed;
     Rigidbody2D rb;
 

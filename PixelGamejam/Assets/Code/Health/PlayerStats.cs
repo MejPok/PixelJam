@@ -59,7 +59,7 @@ public class PlayerStats : MonoBehaviour
             return allMovementStates[2];
         }
 
-        if(hasntBothArms && !hasntBothLegs){ // doesnt have Arms but has both Legs
+        if(hasntBothArms && !hasntOneLeg){ // doesnt have Arms but has both Legs
             stateChosen = allMovementStates[0];
 
             stateChosen.CanThrow = false;
@@ -77,6 +77,8 @@ public class PlayerStats : MonoBehaviour
 
         if (!hasntBothArms && !hasntOneLeg)
         {
+            Debug.Log("pls21");
+
             allMovementStates[0].CanThrow = true;
             return allMovementStates[0];
         }
