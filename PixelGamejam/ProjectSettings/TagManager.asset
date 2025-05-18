@@ -40,6 +40,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: BackgroundTiles
+    uniqueID: 683656517
+    locked: 0
+  - name: Pillars
+    uniqueID: 1127896277
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
