@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 2384879033555020784}
   - component: {fileID: 3597490300968994469}
   - component: {fileID: 9027005704589443900}
+  - component: {fileID: -8484950652850003770}
   m_Layer: 7
-  m_Name: Bone
+  m_Name: Bone 1
   m_TagString: Bone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -117,7 +118,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.03404489, y: -0.030712247}
@@ -174,6 +175,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   BoneName: Base
+--- !u!114 &-8484950652850003770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2994431462379099033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4f9539ef34471242a2d78c215324709, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6006604093631972235
 GameObject:
   m_ObjectHideFlags: 0

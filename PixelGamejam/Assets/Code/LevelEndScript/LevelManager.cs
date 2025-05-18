@@ -15,21 +15,19 @@ public class LevelManager : MonoBehaviour
     public GameObject activeMap;
 
     public GameObject Player;
-    private void Awake()
+
+    void Start()
     {
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
+            
         }
         else
         {
             Destroy(gameObject);
         }
-    }
 
-    void Start()
-    {
         bonesInRoom = new List<GameObject>();
         LoadRoom();
     }
@@ -56,6 +54,7 @@ public class LevelManager : MonoBehaviour
         if (currentRoomOnLevel >= roomsInScene.Length)
         {
             Debug.Log("Not enough rooms for that");
+            LoadEndScene();
             return;
         }
         if (activeMap != null)
@@ -66,8 +65,11 @@ public class LevelManager : MonoBehaviour
         currentRoomOnLevel += 1;
 
         roomActive = roomsInScene[currentRoomOnLevel - 1];
-
-        BoneChoser.instance.RemoveTheseBones(roomActive.bonesRequiredRemoved);
+        if (BoneChoser.instance != null)
+        {
+            BoneChoser.instance.RemoveTheseBones(roomActive.bonesRequiredRemoved);
+        }
+        
 
         roomActive.StartGame(Player);
         activeMap = roomActive.activeMap;
@@ -97,8 +99,8 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    void LoadScene(string sceneName) 
+    void LoadEndScene() 
     {
-        SceneManager.LoadSceneAsync(sceneName);   
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
