@@ -21,7 +21,9 @@ public class ThrowingBones : MonoBehaviour
 
     public void PutDownTheBone(string NAME, Sprite sprite)
     {
-        GameObject bullet = Instantiate(bonePrefab, transform.position, Quaternion.identity);
+        Vector2 newPosition = new Vector2(throwPoint.position.x, throwPoint.position.y + change);
+
+        GameObject bullet = Instantiate(bonePrefab, newPosition, Quaternion.identity);
         bullet.GetComponent<BoneData>().CreateBone(NAME, sprite);
         LevelManager.instance.AddBoneToRoom(bullet);
     }

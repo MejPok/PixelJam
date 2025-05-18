@@ -702,7 +702,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 207764992529289850, guid: 785d4f120e3411e4da54c0cb25ce4862, type: 3}
       propertyPath: WeightNeeded
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 207764992529289850, guid: 785d4f120e3411e4da54c0cb25ce4862, type: 3}
       propertyPath: WhereToMoveDoor.y

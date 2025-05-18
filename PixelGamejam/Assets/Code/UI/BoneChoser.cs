@@ -204,11 +204,12 @@ public class BoneChoser : MonoBehaviour
         }
 
         CheckForMainBones();
+        SetCollidersCorrect();
 
         if (cantPickUp)
         {
             timer += Time.deltaTime;
-            if (timer >= 0.1f)
+            if (timer >= 0.01f)
             {
                 cantPickUp = false;
                 timer = 0;
@@ -383,4 +384,34 @@ public class BoneChoser : MonoBehaviour
         return CountableBones.Count;
 
     }
+
+    public GameObject Arms;
+    public GameObject Legs;
+    void SetCollidersCorrect()
+    {
+        List<string> names = new List<string>();
+        for (int i = 0; i < bonesDisabled.Count; i++)
+        {
+            names.Add(bonesDisabled[i].name);
+        }
+
+        Legs.SetActive(true);
+        Arms.SetActive(true);
+
+        if (names.Contains("RightLeg") && names.Contains("LeftLeg"))
+        {
+            Legs.SetActive(false);
+        }
+
+
+        if (names.Contains("RightArm") && names.Contains("LeftArm"))
+        {
+            Arms.SetActive(false);
+        }
+        
+
+        
+    }
 }
+
+
