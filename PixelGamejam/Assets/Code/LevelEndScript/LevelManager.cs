@@ -71,8 +71,8 @@ public class LevelManager : MonoBehaviour
 
         roomActive.StartGame(Player);
         activeMap = roomActive.activeMap;
-
         DeleteBones();
+
         Debug.Log("created map level " + currentRoomOnLevel);
     }
 

@@ -10,9 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 57458e1256728b342991b57919ff8b41, type: 3}
-  m_Name: PhysicsOne
+  m_Name: Mix
   m_EditorClassIdentifier: 
-  bonesRequiredRemoved: []
+  bonesRequiredRemoved:
+  - RightArm
+  - RightLeg
+  - LeftArm
+  - LeftLeg
+  - Spine
+  - Spleen
+  - Ribcage
   positionWhereToSpawnPlayer: {fileID: 0}
   activeMap: {fileID: 0}
-  map: {fileID: 8367192280212610214, guid: fb3c884545e520544b5f662b36f7bde5, type: 3}
+  map: {fileID: 8367192280212610214, guid: dc977a182dcf4c14da588c3a77d6f92c, type: 3}
