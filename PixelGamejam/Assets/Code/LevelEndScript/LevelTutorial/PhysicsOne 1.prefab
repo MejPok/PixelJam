@@ -36301,11 +36301,11 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 2.4252968, y: 12.288067}
-      - {x: -8.930878, y: 12.338979}
-      - {x: -8.786045, y: -4.361798}
-      - {x: 27.642136, y: -4.482586}
-      - {x: 27.700747, y: 12.163664}
+    - - {x: 2.3767014, y: 14.717821}
+      - {x: -10.388729, y: 14.622945}
+      - {x: -10.632656, y: -8.055023}
+      - {x: 28.565441, y: -8.418785}
+      - {x: 28.301065, y: 14.841997}
   m_UseDelaunayMesh: 0
 --- !u!1001 &1802100863342483312
 PrefabInstance:
@@ -36315,13 +36315,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5038986453955371607}
     m_Modifications:
+    - target: {fileID: 1348729561440769432, guid: d04c92cc37f6a09489f6acbd4db3c607, type: 3}
+      propertyPath: m_Size.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1348729561440769432, guid: d04c92cc37f6a09489f6acbd4db3c607, type: 3}
+      propertyPath: m_Size.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1348729561440769432, guid: d04c92cc37f6a09489f6acbd4db3c607, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8018041758543077411, guid: d04c92cc37f6a09489f6acbd4db3c607, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.27
       objectReference: {fileID: 0}
     - target: {fileID: 8018041758543077411, guid: d04c92cc37f6a09489f6acbd4db3c607, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.49
+      value: -0.23
       objectReference: {fileID: 0}
     - target: {fileID: 8018041758543077411, guid: d04c92cc37f6a09489f6acbd4db3c607, type: 3}
       propertyPath: m_LocalPosition.z
@@ -49624,7 +49636,7 @@ PrefabInstance:
     - target: {fileID: 9065873772020073171, guid: 37aa27e9383e5e7409e9f070981bd7a6, type: 3}
       propertyPath: m_TileSpriteArray.Array.data[2].m_Data
       value: 
-      objectReference: {fileID: 602162289, guid: f6230875a1e96584f8241a4dcd315f76, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 9065873772020073171, guid: 37aa27e9383e5e7409e9f070981bd7a6, type: 3}
       propertyPath: m_TileSpriteArray.Array.data[3].m_Data
       value: 
@@ -49672,7 +49684,7 @@ PrefabInstance:
     - target: {fileID: 9065873772020073171, guid: 37aa27e9383e5e7409e9f070981bd7a6, type: 3}
       propertyPath: m_TileSpriteArray.Array.data[10].m_Data
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 602162289, guid: f6230875a1e96584f8241a4dcd315f76, type: 3}
     - target: {fileID: 9065873772020073171, guid: 37aa27e9383e5e7409e9f070981bd7a6, type: 3}
       propertyPath: m_TileSpriteArray.Array.data[11].m_Data
       value: 
@@ -50307,7 +50319,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9065873772020073171, guid: 37aa27e9383e5e7409e9f070981bd7a6, type: 3}
       propertyPath: m_TileSpriteArray.Array.data[2].m_RefCount
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9065873772020073171, guid: 37aa27e9383e5e7409e9f070981bd7a6, type: 3}
       propertyPath: m_TileSpriteArray.Array.data[3].m_RefCount
@@ -53939,7 +53951,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9065873772020073171, guid: 37aa27e9383e5e7409e9f070981bd7a6, type: 3}
       propertyPath: m_TileSpriteArray.Array.data[10].m_RefCount
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9065873772020073171, guid: 37aa27e9383e5e7409e9f070981bd7a6, type: 3}
       propertyPath: m_TileSpriteArray.Array.data[11].m_RefCount
@@ -63579,7 +63591,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9065873772020073171, guid: 37aa27e9383e5e7409e9f070981bd7a6, type: 3}
       propertyPath: m_Tiles.Array.data[736].second.m_TileSpriteIndex
-      value: 2
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9065873772020073171, guid: 37aa27e9383e5e7409e9f070981bd7a6, type: 3}
       propertyPath: m_Tiles.Array.data[737].second.m_TileSpriteIndex
