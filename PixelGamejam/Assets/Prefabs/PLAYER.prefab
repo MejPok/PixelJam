@@ -361,6 +361,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioClips:
   - {fileID: 8300000, guid: a1168731745eee34ca2c63b4b93c41b2, type: 3}
+  - {fileID: 8300000, guid: c0d4aa08c9ac47d4aac43a7b91f9fd4f, type: 3}
+  - {fileID: 8300000, guid: 92e3405fc824e5242a12654f34d1a9ba, type: 3}
+  - {fileID: 8300000, guid: d15b50e9568c1dd4383501f8214bbe76, type: 3}
+  - {fileID: 8300000, guid: 88ff0e0cef2632641b27d5286d970b37, type: 3}
+  - {fileID: 8300000, guid: df6eb40ba3304b343af99a4abbd756c6, type: 3}
 --- !u!61 &7268789450968471367
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -13,11 +13,12 @@ public class OneLegState : ScriptableMovementState
 
 
         float horizontalInput = Input.GetAxis("Horizontal");
-        
+
         if (Mathf.Abs(horizontalInput) > 0)
         {
             Vector2 force = new Vector2(horizontalInput * 1.5f, 0.01f);
             rb.AddForce(force);
+            PlayMoveSound();
         }
     }
 
@@ -38,7 +39,6 @@ public class OneLegState : ScriptableMovementState
         }
         
     }
-
     public override void Update(){
         // Pseudo rolling slowdown
         if (isGrounded && Mathf.Abs(rb.velocity.x) > 0.01f)

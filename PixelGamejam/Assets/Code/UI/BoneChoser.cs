@@ -420,9 +420,6 @@ public class BoneChoser : MonoBehaviour
         {
             Arms.SetActive(false);
         }
-        
-
-        
     }
 }
 

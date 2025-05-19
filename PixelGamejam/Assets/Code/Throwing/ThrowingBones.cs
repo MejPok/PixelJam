@@ -26,6 +26,7 @@ public class ThrowingBones : MonoBehaviour
         GameObject bullet = Instantiate(bonePrefab, newPosition, Quaternion.identity);
         bullet.GetComponent<BoneData>().CreateBone(NAME, sprite);
         LevelManager.instance.AddBoneToRoom(bullet);
+        SoundManager.Instance.PlaySoundFX(GetComponent<FXchoser>().audioClips[5], transform, 0.5f);
     }
 
     float change;
@@ -49,5 +50,7 @@ public class ThrowingBones : MonoBehaviour
         bullet.GetComponent<BoneData>().CreateBone(NAME, sprite);
 
         LevelManager.instance.AddBoneToRoom(bullet);
+        SoundManager.Instance.PlaySoundFX(GetComponent<FXchoser>().audioClips[3], transform, 0.5f);
+
     }
 }

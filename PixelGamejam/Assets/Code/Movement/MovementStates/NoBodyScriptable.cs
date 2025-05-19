@@ -18,6 +18,7 @@ public class NoBodyScriptable : ScriptableMovementState
         {
             Vector2 force = new Vector2(horizontalInput * speed, 0);
             rb.AddForce(force);
+            PlayMoveSound();
         }
         
     }

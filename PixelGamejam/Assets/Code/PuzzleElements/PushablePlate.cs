@@ -34,6 +34,8 @@ public class PushablePlate : MonoBehaviour
         startPosition = button.transform.position;
         StartDoor = whatToMove.transform.position;
     }
+    float FXtimer;
+    bool FXwait;
 
     void Update()
     {
@@ -51,7 +53,19 @@ public class PushablePlate : MonoBehaviour
         }
         if (timer >= TimeToPressDown)
         {
-                timer = TimeToPressDown;
+            timer = TimeToPressDown;
+            FXtimer += Time.deltaTime;
+            if (FXtimer >= 5f)
+            {
+                FXtimer = 0f;
+                FXwait = false;
+            }
+            if (!FXwait)
+            {
+                FXwait = true;
+                SoundManager.Instance.PlaySoundFX(GetComponent<FXchoser>().audioClips[0], transform, 0.3f);
+            }
+                
         }
 
         if (playerIsOn)
@@ -101,9 +115,6 @@ public class PushablePlate : MonoBehaviour
             {
                 bonesStaying.Add(other.gameObject);
             }
-
-
-            
 
             somethingStepping = true;
 
