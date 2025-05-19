@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PhantomPlatform : MonoBehaviour
@@ -15,11 +17,22 @@ public class PhantomPlatform : MonoBehaviour
 
         if (bc.enabled)
         {
-            if (pm.positionStates[0].position.y < transform.position.y) bc.enabled = false;
+            if (pm.positionStates[0].position.y < transform.position.y)
+            {   bc.enabled = false;
+
+                gameObject.GetComponent<SpriteRenderer>().color = new UnityEngine.Color(1f, 1f, 1f, 0.1f);
+                
+            } 
         }
         else if (!bc.enabled)
         {
-            if (pm.positionStates[0].position.y > transform.position.y + dif) bc.enabled = true;
+            if (pm.positionStates[0].position.y > transform.position.y + dif)
+            {
+                bc.enabled = true;
+                gameObject.GetComponent<SpriteRenderer>().color = new UnityEngine.Color(1f, 1f, 1f, 0.6f);
+
+            } 
+
         }
     }
     
