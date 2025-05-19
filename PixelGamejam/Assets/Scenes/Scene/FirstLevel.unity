@@ -554,7 +554,7 @@ PrefabInstance:
       objectReference: {fileID: 490757468}
     - target: {fileID: 2011222381957973248, guid: 4e4776397280b7041944b1b699e0f26b, type: 3}
       propertyPath: roomsInScene.Array.size
-      value: 15
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 2011222381957973248, guid: 4e4776397280b7041944b1b699e0f26b, type: 3}
       propertyPath: roomsInScene.Array.data[0]
@@ -619,7 +619,7 @@ PrefabInstance:
     - target: {fileID: 2011222381957973248, guid: 4e4776397280b7041944b1b699e0f26b, type: 3}
       propertyPath: roomsInScene.Array.data[15]
       value: 
-      objectReference: {fileID: 11400000, guid: 918e83b0890ddde4f8f12084218a19ed, type: 2}
+      objectReference: {fileID: 11400000, guid: ccfa9d17889169446a7efba337d9026c, type: 2}
     - target: {fileID: 3645545832404769041, guid: 4e4776397280b7041944b1b699e0f26b, type: 3}
       propertyPath: m_Name
       value: Manager

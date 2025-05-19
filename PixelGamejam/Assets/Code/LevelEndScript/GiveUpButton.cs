@@ -7,7 +7,7 @@ public class GiveUpButton : MonoBehaviour
 {
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             LevelManager.instance.Reload();
         }
