@@ -30628,11 +30628,11 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 2.4252968, y: 12.288067}
-      - {x: -8.930878, y: 12.338979}
-      - {x: -8.786045, y: -4.361798}
-      - {x: 27.642136, y: -4.482586}
-      - {x: 27.700747, y: 12.163664}
+    - - {x: 2.5748239, y: 13.7085705}
+      - {x: -12.332615, y: 13.64734}
+      - {x: -12.233292, y: -5.2003174}
+      - {x: 29.458927, y: -4.94843}
+      - {x: 29.457685, y: 13.584168}
   m_UseDelaunayMesh: 0
 --- !u!1001 &1802100863342483312
 PrefabInstance:
@@ -30642,6 +30642,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5038986453955371607}
     m_Modifications:
+    - target: {fileID: 1348729561440769432, guid: d04c92cc37f6a09489f6acbd4db3c607, type: 3}
+      propertyPath: m_Size.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1348729561440769432, guid: d04c92cc37f6a09489f6acbd4db3c607, type: 3}
+      propertyPath: m_Size.y
+      value: 1.4956062
+      objectReference: {fileID: 0}
+    - target: {fileID: 1348729561440769432, guid: d04c92cc37f6a09489f6acbd4db3c607, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.2521969
+      objectReference: {fileID: 0}
+    - target: {fileID: 1348729561440769432, guid: d04c92cc37f6a09489f6acbd4db3c607, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8018041758543077411, guid: d04c92cc37f6a09489f6acbd4db3c607, type: 3}
       propertyPath: m_LocalPosition.x
       value: 21.29

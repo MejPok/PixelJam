@@ -583,11 +583,11 @@ PrefabInstance:
     - target: {fileID: 2011222381957973248, guid: 4e4776397280b7041944b1b699e0f26b, type: 3}
       propertyPath: roomsInScene.Array.data[6]
       value: 
-      objectReference: {fileID: 11400000, guid: 320f3933575e6814dacbae2cd866666a, type: 2}
+      objectReference: {fileID: 11400000, guid: 019550a9a85acb34e866b0165fe55112, type: 2}
     - target: {fileID: 2011222381957973248, guid: 4e4776397280b7041944b1b699e0f26b, type: 3}
       propertyPath: roomsInScene.Array.data[7]
       value: 
-      objectReference: {fileID: 11400000, guid: 019550a9a85acb34e866b0165fe55112, type: 2}
+      objectReference: {fileID: 11400000, guid: 320f3933575e6814dacbae2cd866666a, type: 2}
     - target: {fileID: 2011222381957973248, guid: 4e4776397280b7041944b1b699e0f26b, type: 3}
       propertyPath: roomsInScene.Array.data[8]
       value: 

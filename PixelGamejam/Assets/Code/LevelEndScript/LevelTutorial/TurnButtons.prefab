@@ -18891,7 +18891,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 2
-      m_TileSpriteIndex: 2
+      m_TileSpriteIndex: 13
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -31146,8 +31146,8 @@ Tilemap:
     m_Data: {fileID: -27791754, guid: f6230875a1e96584f8241a4dcd315f76, type: 3}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 1
-    m_Data: {fileID: 325459837, guid: f6230875a1e96584f8241a4dcd315f76, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
   - m_RefCount: 0
@@ -31168,8 +31168,8 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 325459837, guid: f6230875a1e96584f8241a4dcd315f76, type: 3}
   - m_RefCount: 737
     m_Data: {fileID: -922376356, guid: f6230875a1e96584f8241a4dcd315f76, type: 3}
   - m_RefCount: 69
@@ -31353,11 +31353,12 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 2.4252968, y: 12.288067}
-      - {x: -8.930878, y: 12.338979}
-      - {x: -8.786045, y: -4.361798}
-      - {x: 27.642136, y: -4.482586}
-      - {x: 27.700747, y: 12.163664}
+    - - {x: 2.2364264, y: 14.932253}
+      - {x: -11.244539, y: 14.794294}
+      - {x: -11.571886, y: -3.8424048}
+      - {x: -11.383013, y: -6.4393725}
+      - {x: 27.878222, y: -6.7962484}
+      - {x: 27.747963, y: 14.524544}
   m_UseDelaunayMesh: 0
 --- !u!1001 &119975631025372259
 PrefabInstance:
